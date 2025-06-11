@@ -1,0 +1,152 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Team - Department of XYZ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .contact-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #0055aa;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .contact-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1001;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    .close-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      float: right;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Faculty Team - Department of XYZ</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Professor 1">
+      <h3>Dr. Alice Johnson</h3>
+      <p>Computer Science</p>
+      <p>Expert in artificial intelligence and machine learning.</p>
+      <button class="contact-btn" onclick="openForm('Alice Johnson')">Contact</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Professor 2">
+      <h3>Dr. Bob Smith</h3>
+      <p>Electrical Engineering</p>
+      <p>Focuses on embedded systems and IoT devices.</p>
+      <button class="contact-btn" onclick="openForm('Bob Smith')">Contact</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Professor 3">
+      <h3>Dr. Carol Lee</h3>
+      <p>Mechanical Engineering</p>
+      <p>Specializes in robotics and automation systems.</p>
+      <button class="contact-btn" onclick="openForm('Carol Lee')">Contact</button>
+    </div>
+  </main>
+
+  <div class="overlay" id="overlay" onclick="closeForm()"></div>
+
+  <div class="contact-popup" id="contactForm">
+    <button class="close-btn" onclick="closeForm()">X</button>
+    <h2>Contact Faculty Member</h2>
+    <form>
+      <input type="text" id="contactTo" readonly />
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    function openForm(name) {
+      document.getElementById("contactTo").value = name;
+      document.getElementById("contactForm").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("contactForm").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
